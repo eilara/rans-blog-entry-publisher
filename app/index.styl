@@ -1,0 +1,117 @@
+// vim: set tw=80 fo=cqt wm=0 tabstop=2 softtabstop=2 shiftwidth=2:
+
+$font-size                 = 1em
+$font-size-cite            = 0.7 * $font-size
+$font-size-h1              = 1.8 * $font-size
+$font-prefix               = 'fonts/lmroman'
+$line-height               = 120%
+$link-color                = #0000E0
+$size-root-width-max       = 49 * $font-size
+$size-root-width-min       = $size-root-width-max / 2
+$size-head-width-max       = 0.75 * $size-root-width-max
+$size-head-width-min       = $size-root-width-min
+
+font-set($family, $size=$font-size)
+  font                       $size $family
+
+font-face($name, $url)
+  font-family                $name
+  src                        url($font-prefix + $url + '.otf') format('opentype')
+  font-feature-settings      "kern" 1
+  text-rendering             optimizeLegibility
+
+center-h()
+  margin-left                auto
+  margin-right               auto
+
+center-h-text($family, $size=$font-size)
+  center-h
+  font-set                   $family $size
+  font-weight                normal
+  text-align                 center
+
+basic-para()
+  font-set                   Lmr12
+  line-height                $line-height
+  text-align                 justify
+  > i
+    font-set                 LmrS
+    line-height              100%
+  > i.mm-cite
+    font-set                 LmrCI
+  > em
+    font-set                 LmrI
+    line-height              100%
+  > s
+    font-set                 LmrC
+    text-decoration          none
+    line-height              100%
+  > code
+    font-set                 LmrC
+    line-height              100%
+
+
+
+@font-face
+  font-face                  Lmr12 '12-regular'
+@font-face
+  font-face                  LmrB  '10-bold'
+@font-face
+  font-face                  LmrC  'caps10-regular'
+@font-face
+  font-face                  LmrCI 'caps10-oblique'
+@font-face
+  font-face                  LmrI  '12-italic'
+@font-face
+  font-face                  LmrS  'slant12-regular'
+
+
+a
+  text-decoration            none
+
+body
+  height                     100%
+  margin                     0em
+  padding                    0em
+  width                      100%
+
+cite
+  color                      $link-color
+  font-set                   Lmr12 $font-size-cite
+  line-height                100%
+  position                   relative
+  top                        -0.4em
+  &:hover
+    text-decoration          underline
+
+h1
+  center-h-text              LmrB $font-size-h1
+
+h6
+  center-h-text              LmrC
+  margin                     0.5em
+
+li
+  basic-para()
+
+p
+  basic-para()
+  text-indent                1.3em
+  &:first-child
+    text-indent              0em
+
+.mm-root
+  center-h()
+  max-width                  $size-root-width-max
+  min-width                  $size-root-width-min
+  padding                    3em
+
+.mm-head
+  center-h()
+  max-width                  $size-head-width-max
+  min-width                  $size-head-width-min
+  padding                    0.5em
+
+.mm-body
+  padding                    $font-size
+

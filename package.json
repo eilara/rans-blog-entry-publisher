@@ -1,0 +1,39 @@
+{
+  "name": "rans-blog-entry-publisher",
+  "version": "0.0.1",
+  "description": "A simple blog entry publisher.",
+  "main": "app/index.js",
+  "scripts": {
+    "clean": "dev-bin/commands.sh clean",
+    "prebuild": "dev-bin/commands.sh prebuild",
+    "fonts": "dev-bin/commands.sh fonts",
+    "css": "dev-bin/commands.sh css",
+    "html": "dev-bin/commands.sh html",
+    "js": "dev-bin/commands.sh js",
+    "build": "dev-bin/commands.sh build",
+    "live": "npm run clean && npm run build && dev-bin/commands.sh live"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eilara/rans-blog-entry-publisher.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "eilara",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/eilara/rans-blog-entry-publisher/issues"
+  },
+  "homepage": "https://github.com/eilara/rans-blog-entry-publisher#readme",
+  "dependencies": {
+    "browserify": "^12.0.1",
+    "budo": "^6.0.0",
+    "hyphenation.en-us": "^0.2.1",
+    "hypher": "^0.2.3",
+    "jade": "^1.11.0",
+    "jquery": "^2.1.4",
+    "stylus": "^0.52.4",
+    "watchify": "^3.6.0"
+  }
+}
